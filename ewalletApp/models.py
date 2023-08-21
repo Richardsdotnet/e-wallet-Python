@@ -7,7 +7,7 @@ from django.db import models
 
 class User(AbstractUser):
     email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=11)
+    phone_number = models.CharField(max_length=11)
 
 
 class Wallet(models.Model):
