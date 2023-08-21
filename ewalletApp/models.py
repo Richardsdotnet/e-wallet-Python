@@ -1,18 +1,15 @@
 import uuid
-from django.contrib.auth.models import AbstractUser
+
 from django.db import models
+
+from user.models import User
 
 
 # Create your models here.
 
-class User(AbstractUser):
-    email = models.EmailField(unique=True)
-    phone_number = models.CharField(max_length=11)
-
-
 class Wallet(models.Model):
-    user = models.CharField(max_length=150)
-    balance = models.CharField(max_length=150)
+    balance = models.DecimalField(max_digits=9, decimal_places= 2)
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
     wallet_number = models.CharField(max_length=20, primary_key=True)
 
 

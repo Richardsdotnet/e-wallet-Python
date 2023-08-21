@@ -5,7 +5,7 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 
 from ewalletApp.models import Wallet, Transaction, User
-from ewalletApp.serializers import WalletSerializer, TransactionSerializer, UserSerializer
+from ewalletApp.serializers import WalletSerializer, TransactionSerializer
 
 
 class WalletViewSet(ModelViewSet):
@@ -18,7 +18,4 @@ class TransactionViewSet(ModelViewSet):
     serializer_class = TransactionSerializer
 
 
-class UserViewSet(ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
 

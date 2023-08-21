@@ -17,6 +17,4 @@ class WalletSerializer(serializers.ModelSerializer):
     fields = ['user', 'balance', 'wallet_number']
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        fields = ['email', 'phone_number']
+
