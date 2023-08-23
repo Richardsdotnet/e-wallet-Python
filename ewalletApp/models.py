@@ -8,6 +8,10 @@ from user.models import User
 # Create your models here.
 
 class Wallet(models.Model):
+    def __init__(self, *args, **kwargs):
+        super().__init__(args, kwargs)
+        self.time_created = None
+
     balance = models.DecimalField(max_digits=9, decimal_places= 2)
     user = models.OneToOneField(User, on_delete=models.PROTECT)
     wallet_number = models.CharField(max_length=20, primary_key=True)
