@@ -2,7 +2,10 @@ import uuid
 from datetime import datetime
 from decimal import Decimal
 
+
+from django.core.mail import BadHeaderError
 from django.db import transaction
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
@@ -11,6 +14,7 @@ from rest_framework.response import Response
 
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
+from templated_mail.mail import BaseEmailMessage
 
 from .models import Wallet, Transaction
 from .serializers import TransactionActivitySerializer, WalletSerializer
@@ -82,3 +86,5 @@ class WalletViewSet(ModelViewSet):
     queryset = Wallet.objects.all()
     serializer_class = WalletSerializer
     permission_classes = [IsAuthenticated]
+
+
